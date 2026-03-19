@@ -8,8 +8,9 @@ The Products.MeetingCommunes version must be the same as the Products.PloneMeeti
 4.2.17 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added `utils.get_finance_advice_esign_signatories` and made it available on
+  `Products.PloneMeeting.safe_utils`.
+  [gbastien]
 
 4.2.16 (2025-12-22)
 -------------------

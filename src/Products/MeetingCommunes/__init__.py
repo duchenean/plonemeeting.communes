@@ -40,6 +40,7 @@ __docformat__ = 'plaintext'
 
 import model.pm_updates  # noqa
 import adapters  # noqa
+import safe_utils
 
 
 def initialize(context):
