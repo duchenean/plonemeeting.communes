@@ -5,8 +5,8 @@ Products.MeetingCommunes Changelog
 The Products.MeetingCommunes version must be the same as the Products.PloneMeeting version
 
 
-4.2.17-esign (unreleased)
--------------------
+4.2.17.esign1 (unreleased)
+--------------------------
 
 - Added `utils.get_finance_advice_esign_signatories` and made it available on
   `Products.PloneMeeting.safe_utils`.
