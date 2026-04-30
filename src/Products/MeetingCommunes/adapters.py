@@ -506,8 +506,11 @@ class CustomMeetingItem(MeetingItem):
         # set keepWithNext to False as it will add a 'class' and so
         # xhtmlContentIsEmpty will never consider it empty...
         if xhtmlContentIsEmpty(self.getDecision(keepWithNext=False)):
-            self.setDecision("<p>%s</p>%s" % (self.Title(),
-                                              self.Description()))
+            description = self.description
+            if hasattr(description, 'output'):
+                description = description.output or u''
+            self.decision = "<p>%s</p>%s" % (self.Title(),
+                                             description or u'')
             self.reindexObject()
     MeetingItem._initDecisionFieldIfEmpty = _initDecisionFieldIfEmpty
 
@@ -926,7 +929,7 @@ class MeetingCommunesWorkflowActions(MeetingWorkflowActions):
            if decision field is empty.'''
         # call parent's doDecide
         super(MeetingCommunesWorkflowActions, self).doDecide(stateChange)
-        if self.cfg.getInitItemDecisionIfEmptyOnDecide():
+        if getattr(self.cfg, 'init_item_decision_if_empty_on_decide', True):
             for item in self.context.get_items():
                 # If deliberation (motivation+decision) is empty,
                 # initialize it the decision field

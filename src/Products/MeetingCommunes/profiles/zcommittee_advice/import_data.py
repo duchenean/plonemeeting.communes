@@ -156,7 +156,7 @@ adviceMeeting.recurringItems = [
         proposingGroup='dirgen',
         decision='Procès-verbal approuvé'), ]
 adviceMeeting.itemTemplates = []
-adviceMeeting.initItemDecisionIfEmptyOnDecide = False
+adviceMeeting.init_item_decision_if_empty_on_decide = False
 adviceMeeting.meetingPresentItemWhenNoCurrentMeetingStates = ("created", "frozen")
 adviceMeeting.itemBudgetInfosStates = []
 

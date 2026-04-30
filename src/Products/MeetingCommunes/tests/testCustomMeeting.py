@@ -19,23 +19,23 @@ class testCustomMeetingType(MeetingCommunesTestCase):
         """
         # make sure we are not hit by any other xhtmlTransformations
         cfg = self.meetingConfig
-        cfg.setXhtmlTransformTypes(())
+        cfg.xhtml_transform_types = ()
         # check that it works
         # check that if the field contains something, it is not intialized again
         self.changeUser('pmManager')
         # create some items
         # empty decision
         i1 = self.create('MeetingItem', title='Item1', description="<p>Description Item1</p>")
-        i1.setDecision("")
-        i1.setProposingGroup(self.developers_uid)
+        i1.decision = ""
+        i1.proposing_group = self.developers_uid
         # decision field is already filled
         i2 = self.create('MeetingItem', title='Item2', description="<p>Description Item2</p>")
-        i2.setDecision("<p>Decision Item2</p>")
-        i2.setProposingGroup(self.developers_uid)
+        i2.decision = "<p>Decision Item2</p>"
+        i2.proposing_group = self.developers_uid
         # create an item with the default Kupu empty value
         i3 = self.create('MeetingItem', title='Item3', description="<p>Description Item3</p>")
-        i3.setDecision("<p>&nbsp;</p>")
-        i3.setProposingGroup(self.developers_uid)
+        i3.decision = "<p>&nbsp;</p>"
+        i3.proposing_group = self.developers_uid
         meeting = self.create('Meeting')
         # present every items in the meeting
         items = (i1, i2, i3)
@@ -46,15 +46,15 @@ class testCustomMeetingType(MeetingCommunesTestCase):
         self.assertTrue(i2.getDecision(keepWithNext=False) == '<p>Decision Item2</p>')
         self.assertTrue(i3.getDecision(keepWithNext=False) == '<p>&nbsp;</p>')
         # if cfg.initItemDecisionIfEmptyOnDecide is False, the decision field is not initialized
-        cfg.setInitItemDecisionIfEmptyOnDecide(False)
+        cfg.init_item_decision_if_empty_on_decide = False
         self.decideMeeting(meeting)
         self.assertTrue(i1.getDecision(keepWithNext=False) == "")
         self.assertTrue(i2.getDecision(keepWithNext=False), '<p>Decision Item2</p>')
         # a complex HTML is not 'touched'
         self.assertTrue(i3.getDecision(keepWithNext=False), '<p>&nbsp;</p>')
-        # now if cfg.initItemDecisionIfEmptyOnDecide is True
+        # now if cfg.init_item_decision_if_empty_on_decide is True
         # fields will be initialized
-        cfg.setInitItemDecisionIfEmptyOnDecide(True)
+        cfg.init_item_decision_if_empty_on_decide = True
         # decide the meeting again
         self.backToState(meeting, 'created')
         self.decideMeeting(meeting)

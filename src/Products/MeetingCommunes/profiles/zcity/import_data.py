@@ -306,7 +306,7 @@ collegeMeeting.recurringItems = [
         proposingGroup='dirgen',
         decision='Procès-verbal approuvé')]
 collegeMeeting.itemTemplates = []
-collegeMeeting.initItemDecisionIfEmptyOnDecide = False
+collegeMeeting.init_item_decision_if_empty_on_decide = False
 collegeMeeting.meetingPresentItemWhenNoCurrentMeetingStates = ("created", "frozen")
 collegeMeeting.itemBudgetInfosStates = []
 
@@ -570,7 +570,7 @@ councilMeeting.recurringItems = [
         decision='Procès-verbal approuvé')]
 councilMeeting.itemTemplates = []
 councilMeeting.itemIconColor = "orange"
-councilMeeting.initItemDecisionIfEmptyOnDecide = False
+councilMeeting.init_item_decision_if_empty_on_decide = False
 councilMeeting.meetingPresentItemWhenNoCurrentMeetingStates = ("created", "frozen")
 councilMeeting.itemBudgetInfosStates = []
 
