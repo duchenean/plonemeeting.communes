@@ -23,7 +23,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testContacts import testContacts as pmtc
+from plonemeeting.core.tests.testContacts import testContacts as pmtc
 
 
 class testContacts(pmtc, MeetingCommunesTestCase):

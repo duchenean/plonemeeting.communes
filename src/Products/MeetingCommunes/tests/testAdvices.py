@@ -4,7 +4,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testAdvices import testAdvices as pmta
+from plonemeeting.core.tests.testAdvices import testAdvices as pmta
 
 
 class testAdvices(MeetingCommunesTestCase, pmta):

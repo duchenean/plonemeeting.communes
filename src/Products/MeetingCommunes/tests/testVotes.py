@@ -4,7 +4,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testVotes import testVotes as pmtv
+from plonemeeting.core.tests.testVotes import testVotes as pmtv
 
 
 class testVotes(MeetingCommunesTestCase, pmtv):

@@ -23,7 +23,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testSearches import testSearches as pmts
+from plonemeeting.core.tests.testSearches import testSearches as pmts
 
 
 class testSearches(MeetingCommunesTestCase, pmts):

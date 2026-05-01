@@ -9,7 +9,7 @@ from datetime import timedelta
 from Products.CMFCore.permissions import AccessContentsInformation
 from Products.CMFCore.permissions import View
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.utils import get_advice_alive_states
+from plonemeeting.core.utils import get_advice_alive_states
 
 
 class testCustomWorkflows(MeetingCommunesTestCase):

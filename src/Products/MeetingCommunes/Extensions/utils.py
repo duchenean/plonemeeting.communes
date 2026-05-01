@@ -8,7 +8,7 @@ from plone import api
 from Products.CMFCore.exceptions import BadRequest
 from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone.utils import safe_unicode
-from Products.PloneMeeting.utils import org_id_to_uid
+from plonemeeting.core.utils import org_id_to_uid
 
 import csv
 
@@ -207,8 +207,8 @@ def import_meetingsCategories_from_csv(self, meeting_config='', isClassifier=Fal
     from Products.CMFPlone.utils import safe_unicode
     from Products.CMFPlone.utils import normalizeString
     from Products.MeetingCommunes.config import PROJECTNAME
-    from Products.PloneMeeting.exportimport.content import ToolInitializer
-    from Products.PloneMeeting.profiles import CategoryDescriptor
+    from plonemeeting.core.exportimport.content import ToolInitializer
+    from plonemeeting.core.profiles import CategoryDescriptor
 
     meetingConfig = getattr(pm, meeting_config)
     if isClassifier:

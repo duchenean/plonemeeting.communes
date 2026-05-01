@@ -6,7 +6,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testChangeItemOrderView import testChangeItemOrderView as pmciov
+from plonemeeting.core.tests.testChangeItemOrderView import testChangeItemOrderView as pmciov
 
 
 class testChangeItemOrderView(MeetingCommunesTestCase, pmciov):

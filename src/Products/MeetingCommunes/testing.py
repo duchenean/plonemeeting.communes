@@ -4,7 +4,7 @@ from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
 from plone.app.testing import FunctionalTesting
 from plone.testing import z2
 from plone.testing import zca
-from Products.PloneMeeting.testing import PMLayer
+from plonemeeting.core.testing import PMLayer
 
 import Products.MeetingCommunes
 
@@ -25,7 +25,7 @@ MC_TESTING_PROFILE = MCLayer(
     zcml_package=Products.MeetingCommunes,
     additional_z2_products=('imio.dashboard',
                             'Products.MeetingCommunes',
-                            'Products.PloneMeeting',
+                            'plonemeeting.core',
                             'Products.CMFPlacefulWorkflow',
                             'Products.PasswordStrength'),
     gs_profile_id='Products.MeetingCommunes:testing',
@@ -39,7 +39,7 @@ MC_DEMO_TESTING_PROFILE = MCLayer(
     zcml_package=Products.MeetingCommunes,
     additional_z2_products=('imio.dashboard',
                             'Products.MeetingCommunes',
-                            'Products.PloneMeeting',
+                            'plonemeeting.core',
                             'Products.CMFPlacefulWorkflow',
                             'Products.PasswordStrength'),
     gs_profile_id='Products.MeetingCommunes:demo',

@@ -6,10 +6,10 @@
 #
 
 from DateTime import DateTime
-from Products.PloneMeeting.profiles import AnnexTypeDescriptor
-from Products.PloneMeeting.profiles import ItemAnnexTypeDescriptor
-from Products.PloneMeeting.profiles import MeetingConfigDescriptor
-from Products.PloneMeeting.profiles import PloneMeetingConfiguration
+from plonemeeting.core.profiles import AnnexTypeDescriptor
+from plonemeeting.core.profiles import ItemAnnexTypeDescriptor
+from plonemeeting.core.profiles import MeetingConfigDescriptor
+from plonemeeting.core.profiles import PloneMeetingConfiguration
 
 
 today = DateTime().strftime('%Y/%m/%d')

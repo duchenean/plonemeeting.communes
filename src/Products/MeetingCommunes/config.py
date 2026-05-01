@@ -6,8 +6,8 @@
 #
 
 from Products.CMFCore.permissions import setDefaultRoles
-from Products.PloneMeeting.config import ADVICE_STATES_MAPPING
-from Products.PloneMeeting.profiles import CategoryDescriptor
+from plonemeeting.core.config import ADVICE_STATES_MAPPING
+from plonemeeting.core.profiles import CategoryDescriptor
 
 
 __author__ = """Gauthier Bastien <g.bastien@imio.be>, Stephan Geulette <s.geulette@imio.be>"""

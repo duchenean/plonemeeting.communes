@@ -6,7 +6,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testAnnexes import testAnnexes as pmta
+from plonemeeting.core.tests.testAnnexes import testAnnexes as pmta
 
 
 class testAnnexes(MeetingCommunesTestCase, pmta):

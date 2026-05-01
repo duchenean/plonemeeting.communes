@@ -3,10 +3,10 @@
 from copy import deepcopy
 from Products.MeetingCommunes.config import FINANCE_ADVICES_COLLECTION_ID
 from Products.MeetingCommunes.profiles.zcity import import_data as zcity
-from Products.PloneMeeting.profiles import patch_pod_templates
-from Products.PloneMeeting.profiles import PloneMeetingConfiguration
-from Products.PloneMeeting.profiles import PodTemplateDescriptor
-from Products.PloneMeeting.profiles import RecurringItemDescriptor
+from plonemeeting.core.profiles import patch_pod_templates
+from plonemeeting.core.profiles import PloneMeetingConfiguration
+from plonemeeting.core.profiles import PodTemplateDescriptor
+from plonemeeting.core.profiles import RecurringItemDescriptor
 
 
 # Categories -------------------------------------------------------------------

@@ -4,17 +4,17 @@ from DateTime import DateTime
 from persistent.mapping import PersistentMapping
 from plone import api
 from plone.namedfile import NamedBlobFile
-from Products.PloneMeeting.migrations.migrate_to_4200 import Migrate_To_4200 as PMMigrate_To_4200
-from Products.PloneMeeting.migrations.migrate_to_4201 import Migrate_To_4201
-from Products.PloneMeeting.migrations.migrate_to_4202 import Migrate_To_4202
-from Products.PloneMeeting.migrations.migrate_to_4203 import Migrate_To_4203
-from Products.PloneMeeting.migrations.migrate_to_4204 import Migrate_To_4204
-from Products.PloneMeeting.migrations.migrate_to_4205 import Migrate_To_4205
-from Products.PloneMeeting.migrations.migrate_to_4206 import Migrate_To_4206
-from Products.PloneMeeting.migrations.migrate_to_4207 import Migrate_To_4207
-from Products.PloneMeeting.migrations.migrate_to_4208 import Migrate_To_4208
-from Products.PloneMeeting.migrations.migrate_to_4209 import Migrate_To_4209
-from Products.PloneMeeting.migrations.migrate_to_4210 import Migrate_To_4210
+from plonemeeting.core.migrations.migrate_to_4200 import Migrate_To_4200 as PMMigrate_To_4200
+from plonemeeting.core.migrations.migrate_to_4201 import Migrate_To_4201
+from plonemeeting.core.migrations.migrate_to_4202 import Migrate_To_4202
+from plonemeeting.core.migrations.migrate_to_4203 import Migrate_To_4203
+from plonemeeting.core.migrations.migrate_to_4204 import Migrate_To_4204
+from plonemeeting.core.migrations.migrate_to_4205 import Migrate_To_4205
+from plonemeeting.core.migrations.migrate_to_4206 import Migrate_To_4206
+from plonemeeting.core.migrations.migrate_to_4207 import Migrate_To_4207
+from plonemeeting.core.migrations.migrate_to_4208 import Migrate_To_4208
+from plonemeeting.core.migrations.migrate_to_4209 import Migrate_To_4209
+from plonemeeting.core.migrations.migrate_to_4210 import Migrate_To_4210
 
 import logging
 
@@ -155,7 +155,7 @@ class Migrate_To_4200(PMMigrate_To_4200):
             # fix some instructions in POD templates
             self._mc_fixPODTemplatesInstructions()
 
-        # call steps from Products.PloneMeeting
+        # call steps from plonemeeting.core
         super(Migrate_To_4200, self).run(extra_omitted=extra_omitted)
 
         if self.is_in_part('c'):  # last step

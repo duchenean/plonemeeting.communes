@@ -9,7 +9,7 @@ from imio.helpers.content import get_vocab_values
 from imio.helpers.content import richtextval
 from plone.dexterity.utils import createContentInContainer
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testToolPloneMeeting import testToolPloneMeeting as pmtt
+from plonemeeting.core.tests.testToolPloneMeeting import testToolPloneMeeting as pmtt
 
 
 class testToolPloneMeeting(MeetingCommunesTestCase, pmtt):
@@ -50,21 +50,21 @@ class testToolPloneMeeting(MeetingCommunesTestCase, pmtt):
         self.assertEqual(
             get_vocab_values(
                 dev_advice,
-                'Products.PloneMeeting.content.advice.advice_type_vocabulary'),
+                'plonemeeting.core.content.advice.advice_type_vocabulary'),
             ['positive', 'positive_with_remarks', 'negative', 'nil'])
         # vendors_advice is a meetingadvicefinances and use what is defined in
         # ToolPloneMeeting.advisersConfig.advice_types
         self.assertEqual(
             get_vocab_values(
                 vendors_advice,
-                'Products.PloneMeeting.content.advice.advice_type_vocabulary'),
+                'plonemeeting.core.content.advice.advice_type_vocabulary'),
             ['positive', 'positive_with_remarks'])
         # unselected values are taken into account
         vendors_advice.advice_type = 'negative'
         self.assertEqual(
             get_vocab_values(
                 vendors_advice,
-                'Products.PloneMeeting.content.advice.advice_type_vocabulary'),
+                'plonemeeting.core.content.advice.advice_type_vocabulary'),
             ['positive', 'positive_with_remarks', 'negative'])
         # when advice is given, it is automatically shown when it reaches it's final wf state
         self.assertFalse(vendors_advice.advice_hide_during_redaction)

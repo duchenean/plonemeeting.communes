@@ -3,15 +3,15 @@
 from copy import deepcopy
 from Products.MeetingCommunes.profiles.examples_fr.import_data import collegeMeeting
 from Products.MeetingCommunes.profiles.examples_fr.import_data import data
-from Products.PloneMeeting.migrations.migrate_to_4_1 import Migrate_To_4_1 as PMMigrate_To_4_1
-from Products.PloneMeeting.migrations.migrate_to_4100 import Migrate_To_4100
-from Products.PloneMeeting.migrations.migrate_to_4101 import Migrate_To_4101
-from Products.PloneMeeting.migrations.migrate_to_4102 import Migrate_To_4102
-from Products.PloneMeeting.migrations.migrate_to_4103 import Migrate_To_4103
-from Products.PloneMeeting.migrations.migrate_to_4104 import Migrate_To_4104
-from Products.PloneMeeting.migrations.migrate_to_4105 import Migrate_To_4105
-from Products.PloneMeeting.migrations.migrate_to_4106 import Migrate_To_4106
-from Products.PloneMeeting.migrations.migrate_to_4107 import Migrate_To_4107
+from plonemeeting.core.migrations.migrate_to_4_1 import Migrate_To_4_1 as PMMigrate_To_4_1
+from plonemeeting.core.migrations.migrate_to_4100 import Migrate_To_4100
+from plonemeeting.core.migrations.migrate_to_4101 import Migrate_To_4101
+from plonemeeting.core.migrations.migrate_to_4102 import Migrate_To_4102
+from plonemeeting.core.migrations.migrate_to_4103 import Migrate_To_4103
+from plonemeeting.core.migrations.migrate_to_4104 import Migrate_To_4104
+from plonemeeting.core.migrations.migrate_to_4105 import Migrate_To_4105
+from plonemeeting.core.migrations.migrate_to_4106 import Migrate_To_4106
+from plonemeeting.core.migrations.migrate_to_4107 import Migrate_To_4107
 
 import logging
 
@@ -118,7 +118,7 @@ class Migrate_To_4_1(PMMigrate_To_4_1):
         # before anything, update the WF interfaces names
         self._updateWFInterfaceNames()
 
-        # call steps from Products.PloneMeeting
+        # call steps from plonemeeting.core
         super(Migrate_To_4_1, self).run(extra_omitted=extra_omitted)
 
         # execute upgrade steps in PM that were added after main upgrade to 4.1
@@ -140,7 +140,7 @@ class Migrate_To_4_1(PMMigrate_To_4_1):
 def migrate(context):
     '''This migration function:
 
-       1) Reinstall Products.MeetingCommunes and execute the Products.PloneMeeting migration;
+       1) Reinstall Products.MeetingCommunes and execute the plonemeeting.core migration;
        2) Define default values for 'contacts' directory.position_types;
        3) Define default ftw.labels labels.
     '''

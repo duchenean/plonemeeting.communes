@@ -20,9 +20,9 @@ from Products.Archetypes.event import ObjectEditedEvent
 from Products.CMFPlone.utils import _createObjectByType
 from Products.MeetingCommunes.config import PROJECTNAME
 from Products.MeetingCommunes.config import SAMPLE_TEXT
-from Products.PloneMeeting.exportimport.content import ToolInitializer
-from Products.PloneMeeting.utils import cleanMemoize
-from Products.PloneMeeting.utils import org_id_to_uid
+from plonemeeting.core.exportimport.content import ToolInitializer
+from plonemeeting.core.utils import cleanMemoize
+from plonemeeting.core.utils import org_id_to_uid
 from zope.event import notify
 
 import logging
@@ -144,7 +144,7 @@ def _reinstallPloneMeeting(context, site):
 
 
 def _installPloneMeeting(context, site):
-    profileId = u'profile-Products.PloneMeeting:default'
+    profileId = u'profile-plonemeeting.core:default'
     site.portal_setup.runAllImportStepsFromProfile(profileId)
 
 

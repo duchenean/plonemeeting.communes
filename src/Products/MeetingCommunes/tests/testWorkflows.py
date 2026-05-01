@@ -8,10 +8,10 @@
 from AccessControl import Unauthorized
 from Products.CMFCore.permissions import View
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.config import AddAnnex
-from Products.PloneMeeting.config import AddAnnexDecision
-from Products.PloneMeeting.tests.testWorkflows import testWorkflows as pmtw
-from Products.PloneMeeting.utils import get_annexes
+from plonemeeting.core.config import AddAnnex
+from plonemeeting.core.config import AddAnnexDecision
+from plonemeeting.core.tests.testWorkflows import testWorkflows as pmtw
+from plonemeeting.core.utils import get_annexes
 from zope.annotation import IAnnotations
 
 

@@ -1,8 +1,8 @@
 from Products.Archetypes.atapi import BooleanField
 from Products.Archetypes.atapi import Schema
-from Products.PloneMeeting.config import registerClasses
-from Products.PloneMeeting.config import WriteRiskyConfig
-from Products.PloneMeeting.MeetingConfig import MeetingConfig
+from plonemeeting.core.config import registerClasses
+from plonemeeting.core.config import WriteRiskyConfig
+from plonemeeting.core.MeetingConfig import MeetingConfig
 
 
 def update_config_schema(baseSchema):

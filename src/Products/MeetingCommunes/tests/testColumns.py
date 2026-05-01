@@ -23,7 +23,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testColumns import testColumns as pmtc
+from plonemeeting.core.tests.testColumns import testColumns as pmtc
 
 
 class testColumns(MeetingCommunesTestCase, pmtc):

@@ -6,7 +6,7 @@ from collective.contact.plonegroup.utils import get_organizations
 from copy import deepcopy
 from datetime import datetime
 from Products.Archetypes.event import ObjectEditedEvent
-from Products.PloneMeeting import logger
+from plonemeeting.core import logger
 from zope.event import notify
 
 import re

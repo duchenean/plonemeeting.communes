@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from copy import deepcopy
-from Products.PloneMeeting.profiles.testing import import_data as pm_import_data
+from plonemeeting.core.profiles.testing import import_data as pm_import_data
 from zope.globalrequest import getRequest
 from zope.i18n import translate
 

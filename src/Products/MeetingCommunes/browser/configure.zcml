@@ -5,7 +5,7 @@
 
     <!-- collective.documentgenerator helper view for MeetingItem -->
     <browser:page
-        for="Products.PloneMeeting.interfaces.IMeetingItem"
+        for="plonemeeting.core.interfaces.IMeetingItem"
         class=".overrides.MCItemDocumentGenerationHelperView"
         permission="zope2.View"
         layer="Products.MeetingCommunes.interfaces.IMeetingCommunesLayer"
@@ -13,7 +13,7 @@
 
     <!-- collective.documentgenerator helper view for Meeting -->
     <browser:page
-        for="Products.PloneMeeting.content.meeting.IMeeting"
+        for="plonemeeting.core.content.meeting.IMeeting"
         class=".overrides.MCMeetingDocumentGenerationHelperView"
         permission="zope2.View"
         layer="Products.MeetingCommunes.interfaces.IMeetingCommunesLayer"

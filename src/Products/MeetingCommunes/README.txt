@@ -1,6 +1,6 @@
 1. Overview
 ===========
-MeetingCommunes is a specific profile for the package Products.PloneMeeting
+MeetingCommunes is a specific profile for the package plonemeeting.core
 
 It configures PloneMeeting to be useable for college and council of belgian cities
 

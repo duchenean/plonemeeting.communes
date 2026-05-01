@@ -3,13 +3,13 @@
 # GNU General Public License (GPL)
 #
 
-from Products.PloneMeeting.interfaces import IMeetingAdviceWorkflowActions
-from Products.PloneMeeting.interfaces import IMeetingAdviceWorkflowConditions
-from Products.PloneMeeting.interfaces import IMeetingItemWorkflowActions
-from Products.PloneMeeting.interfaces import IMeetingItemWorkflowConditions
-from Products.PloneMeeting.interfaces import IMeetingWorkflowActions
-from Products.PloneMeeting.interfaces import IMeetingWorkflowConditions
-from Products.PloneMeeting.interfaces import IPloneMeetingLayer
+from plonemeeting.core.interfaces import IMeetingAdviceWorkflowActions
+from plonemeeting.core.interfaces import IMeetingAdviceWorkflowConditions
+from plonemeeting.core.interfaces import IMeetingItemWorkflowActions
+from plonemeeting.core.interfaces import IMeetingItemWorkflowConditions
+from plonemeeting.core.interfaces import IMeetingWorkflowActions
+from plonemeeting.core.interfaces import IMeetingWorkflowConditions
+from plonemeeting.core.interfaces import IPloneMeetingLayer
 
 
 class IMeetingCommunesWorkflowActions(IMeetingWorkflowActions):

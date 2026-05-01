@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testWFAdaptations import testWFAdaptations as pmtwfa
+from plonemeeting.core.tests.testWFAdaptations import testWFAdaptations as pmtwfa
 
 
 class testWFAdaptations(MeetingCommunesTestCase, pmtwfa):

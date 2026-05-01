@@ -9,7 +9,7 @@
 from DateTime import DateTime
 
 
-brains = context.portal_catalog(object_provides='Products.PloneMeeting.content.meeting.IMeeting',
+brains = context.portal_catalog(object_provides='plonemeeting.core.content.meeting.IMeeting',
                                 meeting_date={'query': DateTime(maxDateTime), 'range': 'max'})
 
 for brain in brains:

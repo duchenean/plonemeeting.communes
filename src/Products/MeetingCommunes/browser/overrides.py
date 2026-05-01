@@ -13,10 +13,10 @@ from imio.history.utils import getLastWFAction
 from plone import api
 from plone.api.validation import mutually_exclusive_parameters
 from Products.CMFPlone.utils import safe_unicode
-from Products.PloneMeeting.browser.views import FolderDocumentGenerationHelperView
-from Products.PloneMeeting.browser.views import ItemDocumentGenerationHelperView
-from Products.PloneMeeting.browser.views import MeetingDocumentGenerationHelperView
-from Products.PloneMeeting.utils import get_annexes
+from plonemeeting.core.browser.views import FolderDocumentGenerationHelperView
+from plonemeeting.core.browser.views import ItemDocumentGenerationHelperView
+from plonemeeting.core.browser.views import MeetingDocumentGenerationHelperView
+from plonemeeting.core.utils import get_annexes
 from Products.MeetingCommunes.config import DEFAULT_FINANCE_ADVICES_TEMPLATE
 from zope.component import getAdapter
 

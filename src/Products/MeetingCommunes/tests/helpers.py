@@ -20,7 +20,7 @@
 # 02110-1301, USA.
 #
 
-from Products.PloneMeeting.tests.helpers import PloneMeetingTestingHelpers
+from plonemeeting.core.tests.helpers import PloneMeetingTestingHelpers
 
 
 class MeetingCommunesTestingHelpers(PloneMeetingTestingHelpers):

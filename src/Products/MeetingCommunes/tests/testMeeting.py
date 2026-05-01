@@ -6,7 +6,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testMeeting import testMeetingType as pmtmt
+from plonemeeting.core.tests.testMeeting import testMeetingType as pmtmt
 
 
 class testMeetingType(MeetingCommunesTestCase, pmtmt):

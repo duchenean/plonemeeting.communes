@@ -6,7 +6,7 @@ from imio.history.utils import getLastWFAction
 from plone.dexterity.utils import createContentInContainer
 from Products.MeetingCommunes.config import FINANCE_ADVICES_COLLECTION_ID
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.indexes import REAL_ORG_UID_PATTERN
+from plonemeeting.core.indexes import REAL_ORG_UID_PATTERN
 
 
 class testCustomMeetingItem(MeetingCommunesTestCase):

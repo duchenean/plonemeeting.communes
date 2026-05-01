@@ -9,7 +9,7 @@ from DateTime import DateTime
 from Products.MeetingCommunes.config import DEFAULT_FINANCE_ADVICES_TEMPLATE
 from Products.MeetingCommunes.config import FINANCE_ADVICES_COLLECTION_ID
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testViews import testViews as pmtv
+from plonemeeting.core.tests.testViews import testViews as pmtv
 
 
 class testViews(MeetingCommunesTestCase, pmtv):

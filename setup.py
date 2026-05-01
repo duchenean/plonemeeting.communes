@@ -30,12 +30,12 @@ setup(
     include_package_data=True,
     zip_safe=False,
     extras_require=dict(
-        test=['Products.PloneMeeting[test]'],
+        test=['plonemeeting.core[test]'],
         templates=['Genshi', ]),
     install_requires=[
         'setuptools',
         'Products.CMFPlone',
         'Pillow',
-        'Products.PloneMeeting'],
+        'plonemeeting.core'],
     entry_points={},
 )

@@ -23,7 +23,7 @@
 #
 
 from Products.MeetingCommunes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
-from Products.PloneMeeting.tests.testValidators import testValidators as pmtv
+from plonemeeting.core.tests.testValidators import testValidators as pmtv
 
 
 class testValidators(MeetingCommunesTestCase, pmtv):

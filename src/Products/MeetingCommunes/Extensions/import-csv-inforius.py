@@ -9,7 +9,7 @@ import re
 from datetime import datetime
 from os.path import isfile, join, exists
 
-from Products.PloneMeeting import logger
+from plonemeeting.core import logger
 from bleach.sanitizer import Cleaner
 
 import transaction

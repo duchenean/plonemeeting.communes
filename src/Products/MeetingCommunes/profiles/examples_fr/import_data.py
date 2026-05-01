@@ -9,17 +9,17 @@ from copy import deepcopy
 from DateTime import DateTime
 from Products.MeetingCommunes.config import FINANCE_ADVICES_COLLECTION_ID
 from Products.MeetingCommunes.config import PORTAL_CATEGORIES
-from Products.PloneMeeting.profiles import AnnexTypeDescriptor
-from Products.PloneMeeting.profiles import CategoryDescriptor
-from Products.PloneMeeting.profiles import ItemAnnexTypeDescriptor
-from Products.PloneMeeting.profiles import ItemTemplateDescriptor
-from Products.PloneMeeting.profiles import MeetingConfigDescriptor
-from Products.PloneMeeting.profiles import OrgDescriptor
-from Products.PloneMeeting.profiles import PloneMeetingConfiguration
-from Products.PloneMeeting.profiles import PodTemplateDescriptor
-from Products.PloneMeeting.profiles import RecurringItemDescriptor
-from Products.PloneMeeting.profiles import StyleTemplateDescriptor
-from Products.PloneMeeting.profiles import UserDescriptor
+from plonemeeting.core.profiles import AnnexTypeDescriptor
+from plonemeeting.core.profiles import CategoryDescriptor
+from plonemeeting.core.profiles import ItemAnnexTypeDescriptor
+from plonemeeting.core.profiles import ItemTemplateDescriptor
+from plonemeeting.core.profiles import MeetingConfigDescriptor
+from plonemeeting.core.profiles import OrgDescriptor
+from plonemeeting.core.profiles import PloneMeetingConfiguration
+from plonemeeting.core.profiles import PodTemplateDescriptor
+from plonemeeting.core.profiles import RecurringItemDescriptor
+from plonemeeting.core.profiles import StyleTemplateDescriptor
+from plonemeeting.core.profiles import UserDescriptor
 
 import os
 

@@ -4,8 +4,8 @@
 from __future__ import print_function
 from datetime import datetime
 from plone.app.querystring import queryparser
-from Products.PloneMeeting import logger
-from Products.PloneMeeting.config import HAS_SOLR
+from plonemeeting.core import logger
+from plonemeeting.core.config import HAS_SOLR
 
 import transaction
 
