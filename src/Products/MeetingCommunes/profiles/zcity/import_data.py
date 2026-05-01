@@ -34,12 +34,12 @@ collegeMeeting.signatures = ''
 collegeMeeting.certifiedSignatures = []
 collegeMeeting.places = ''
 collegeMeeting.usedItemAttributes = ['description',
-                                     'copyGroups',
-                                     'manuallyLinkedItems',
+                                     'copy_groups',
+                                     'manually_linked_items',
                                      'motivation',
                                      'notes',
                                      'observations',
-                                     'otherMeetingConfigsClonableToPrivacy']
+                                     'other_meeting_configs_clonable_to_privacy']
 collegeMeeting.usedMeetingAttributes = ['start_date',
                                         'end_date',
                                         'excused',
@@ -239,7 +239,9 @@ collegeMeeting.powerObservers = (
                      'accepted_but_modified',
                      'delayed',
                      'refused'),
+     'item_access_on': '',
      'meeting_states': ('created', 'frozen', 'decided', 'closed'),
+     'meeting_access_on': '',
      'orderindex_': '1'},
     {'row_id': 'restrictedpowerobservers',
      'label': 'Super observateurs restreints',
@@ -250,7 +252,9 @@ collegeMeeting.powerObservers = (
                      'accepted_but_modified',
                      'delayed',
                      'refused'),
+     'item_access_on': '',
      'meeting_states': ('frozen', 'decided', 'closed'),
+     'meeting_access_on': '',
      'orderindex_': '2'})
 collegeMeeting.workflowAdaptations = [
     'no_publication', 'refused', 'accepted_but_modified', 'delayed',
@@ -403,8 +407,8 @@ councilMeeting.places = ''
 councilMeeting.categories = PORTAL_CATEGORIES
 councilMeeting.usedItemAttributes = ['description',
                                      'category',
-                                     'copyGroups',
-                                     'manuallyLinkedItems',
+                                     'copy_groups',
+                                     'manually_linked_items',
                                      'motivation',
                                      'notes',
                                      'observations',

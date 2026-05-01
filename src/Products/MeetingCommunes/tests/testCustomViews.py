@@ -888,7 +888,7 @@ class testCustomViews(MeetingCommunesTestCase):
             [[i5.getCategory(theObject=True).Title(), items[0:-1]],
              [i7.getCategory(theObject=True).Title(), [i7]]])
 
-        res = helper.get_grouped_items(itemUids, group_by=['category', 'proposingGroup'])
+        res = helper.get_grouped_items(itemUids, group_by=['category', 'proposing_group'])
         self.assertListEqual(
             res,
             [[i5.getCategory(theObject=True).Title(),
@@ -925,7 +925,7 @@ class testCustomViews(MeetingCommunesTestCase):
                                   description=u'Developers topic', category_id='developers')
         self.changeUser('pmManager')
         i5.setCategory('developers')
-        res = helper.get_grouped_items(itemUids, group_by=['proposingGroup', 'category'])
+        res = helper.get_grouped_items(itemUids, group_by=['proposing_group', 'category'])
         self.assertListEqual(
             res,
             [[u'Developers', [u'Development topics', [items[0]]]],
@@ -961,7 +961,7 @@ class testCustomViews(MeetingCommunesTestCase):
              [items[4].getProposingGroup(theObject=True), [items[4]]],
              [items[5].getProposingGroup(theObject=True), items[5:7]]])
 
-        res = helper.get_grouped_items(itemUids, group_by=['proposingGroup'])
+        res = helper.get_grouped_items(itemUids, group_by=['proposing_group'])
         self.assertListEqual(
             res,
             [[u'Developers', [items[0]]],
@@ -984,13 +984,13 @@ class testCustomViews(MeetingCommunesTestCase):
         self.changeUser('pmCreator1')
         itemUids = [item.UID for item in meeting.get_items(ordered=True, the_objects=False)]
         grouped_items = helper.get_grouped_items(
-            itemUids, group_by='proposingGroup', unrestricted=False)
+            itemUids, group_by='proposing_group', unrestricted=False)
         self.assertEqual(len(grouped_items), 1)
         self.assertEqual(grouped_items[0][0], u'Developers')
         self.assertEqual(len(grouped_items[0][1]), 4)
         # unrestricted, every items
         unrestricted_grouped_items = helper.get_grouped_items(
-            itemUids, group_by='proposingGroup', unrestricted=True)
+            itemUids, group_by='proposing_group', unrestricted=True)
         self.assertEqual(len(unrestricted_grouped_items), 2)
         self.assertEqual(unrestricted_grouped_items[0][0], u'Developers')
         self.assertEqual(len(unrestricted_grouped_items[0][1]), 4)
@@ -1001,13 +1001,13 @@ class testCustomViews(MeetingCommunesTestCase):
         self.changeUser('pmCreator2')
         itemUids = [item.UID for item in meeting.get_items(ordered=True, the_objects=False)]
         grouped_items = helper.get_grouped_items(
-            itemUids, group_by='proposingGroup', unrestricted=False)
+            itemUids, group_by='proposing_group', unrestricted=False)
         self.assertEqual(len(grouped_items), 1)
         self.assertEqual(grouped_items[0][0], u'Vendors')
         self.assertEqual(len(grouped_items[0][1]), 3)
         # unrestricted, every items
         unrestricted_grouped_items = helper.get_grouped_items(
-            itemUids, group_by='proposingGroup', unrestricted=True)
+            itemUids, group_by='proposing_group', unrestricted=True)
         self.assertEqual(len(unrestricted_grouped_items), 2)
         self.assertEqual(unrestricted_grouped_items[0][0], u'Developers')
         self.assertEqual(len(unrestricted_grouped_items[0][1]), 4)
@@ -1017,13 +1017,13 @@ class testCustomViews(MeetingCommunesTestCase):
         # included_values
         grouped_items = helper.get_grouped_items(
             itemUids,
-            included_values={'proposingGroup': [self.vendors.Title()]},
+            included_values={'proposing_group': [self.vendors.Title()]},
             unrestricted=True)
         self.assertEqual([item.getProposingGroup() for item in grouped_items],
                          [self.vendors_uid, self.vendors_uid, self.vendors_uid])
         grouped_items = helper.get_grouped_items(
             itemUids,
-            included_values={'proposingGroup': [self.developers.Title()]},
+            included_values={'proposing_group': [self.developers.Title()]},
             unrestricted=True)
         self.assertEqual([item.getProposingGroup() for item in grouped_items],
                          [self.developers_uid, self.developers_uid,
@@ -1031,14 +1031,14 @@ class testCustomViews(MeetingCommunesTestCase):
         # excluded_values
         grouped_items = helper.get_grouped_items(
             itemUids,
-            excluded_values={'proposingGroup': [self.vendors.Title()]},
+            excluded_values={'proposing_group': [self.vendors.Title()]},
             unrestricted=True)
         self.assertEqual([item.getProposingGroup() for item in grouped_items],
                          [self.developers_uid, self.developers_uid,
                           self.developers_uid, self.developers_uid])
         grouped_items = helper.get_grouped_items(
             itemUids,
-            excluded_values={'proposingGroup': [self.developers.Title()]},
+            excluded_values={'proposing_group': [self.developers.Title()]},
             unrestricted=True)
         self.assertEqual([item.getProposingGroup() for item in grouped_items],
                          [self.vendors_uid, self.vendors_uid, self.vendors_uid])
@@ -1052,7 +1052,7 @@ class testCustomViews(MeetingCommunesTestCase):
         itemUids = [item.UID() for item in all_unrestricted_grouped_items[0:4]]
         self.assertEqual(len(itemUids), 4)
         unrestricted_grouped_items = helper.get_grouped_items(
-            itemUids, group_by='proposingGroup', unrestricted=True)
+            itemUids, group_by='proposing_group', unrestricted=True)
         all_unrestricted_grouped_items = list(
             chain.from_iterable([items for gp_title, items in unrestricted_grouped_items]))
         self.assertEqual(len(all_unrestricted_grouped_items), 4)

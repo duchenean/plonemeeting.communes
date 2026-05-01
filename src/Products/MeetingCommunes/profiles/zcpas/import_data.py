@@ -120,8 +120,8 @@ casMeeting.shortName = 'cas'
 
 casMeeting.categories = []
 casMeeting.usedItemAttributes = ['description',
-                                 'copyGroups',
-                                 'manuallyLinkedItems',
+                                 'copy_groups',
+                                 'manually_linked_items',
                                  'motivation',
                                  'notes',
                                  'observations']

@@ -109,8 +109,8 @@ councilMeeting.shortName = 'ZCouncil'
 
 councilMeeting.categories = PORTAL_CATEGORIES
 councilMeeting.usedItemAttributes = ['description',
-                                     'copyGroups',
-                                     'manuallyLinkedItems',
+                                     'copy_groups',
+                                     'manually_linked_items',
                                      'motivation',
                                      'notes',
                                      'observations',

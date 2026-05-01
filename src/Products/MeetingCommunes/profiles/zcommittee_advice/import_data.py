@@ -93,7 +93,9 @@ adviceMeeting.powerObservers = (
                      'accepted_but_modified',
                      'delayed',
                      'refused'),
+     'item_access_on': '',
      'meeting_states': ('created', 'frozen', 'decided', 'closed'),
+     'meeting_access_on': '',
      'orderindex_': '1'},
     {'row_id': 'restrictedpowerobservers',
      'label': 'Super observateurs restreints',
@@ -104,7 +106,9 @@ adviceMeeting.powerObservers = (
                      'accepted_but_modified',
                      'delayed',
                      'refused'),
+     'item_access_on': '',
      'meeting_states': ('frozen', 'decided', 'closed'),
+     'meeting_access_on': '',
      'orderindex_': '2'})
 adviceMeeting.onTransitionFieldTransforms = (
     ({'transition': 'delay',

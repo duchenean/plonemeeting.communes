@@ -52,11 +52,11 @@ simpleMeeting.shortName = 'Simple'
 simpleMeeting.annexTypes = [annexe, annexeDecision, annexeAvis, annexeSeance]
 simpleMeeting.usedItemAttributes = [
     'motivation',
-    'budgetInfos',
+    'budget_infos',
     'observations',
-    'sendToAuthority',
-    'toDiscuss',
-    'itemIsSigned',
+    'send_to_authority',
+    'to_discuss',
+    'item_is_signed',
     'notes', ]
 simpleMeeting.usedMeetingAttributes = ['start_date', 'end_date', 'signatures', 'assembly', 'place', 'observations', ]
 simpleMeeting.itemConditionsInterface = 'Products.MeetingCommunes.interfaces.IMeetingItemCommunesWorkflowConditions'
@@ -88,12 +88,16 @@ simpleMeeting.powerObservers = (
                      'refused',
                      'accepted_but_modified',
                      'pre_accepted'),
+     'item_access_on': '',
      'meeting_states': ('frozen', 'decided', 'closed'),
+     'meeting_access_on': '',
      'orderindex_': '1'},
     {'row_id': 'restrictedpowerobservers',
      'label': 'Super observateurs restreints',
      'item_states': [],
+     'item_access_on': '',
      'meeting_states': [],
+     'meeting_access_on': '',
      'orderindex_': '2'})
 simpleMeeting.workflowAdaptations = [
     'no_publication', 'refused', 'accepted_but_modified', 'delayed',

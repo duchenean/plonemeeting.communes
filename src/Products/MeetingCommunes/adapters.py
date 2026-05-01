@@ -91,9 +91,9 @@ class CustomMeeting(Meeting):
 
         # check filters
         filteredItemUids = []
-        uid_catalog = self.context.uid_catalog
+        catalog = self.context.portal_catalog
         for itemUid in itemUids:
-            obj = uid_catalog(UID=itemUid)[0].getObject()
+            obj = catalog(UID=itemUid)[0].getObject()
             if obj.query_state() in ignore_review_states:
                 continue
             elif not (privacy == '*' or obj.getPrivacy() == privacy):
