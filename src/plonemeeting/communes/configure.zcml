@@ -1,0 +1,97 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="MeetingCommunes">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- registerTranslations before including package plonemeeting.core
+       so plonemeeting.communes can overrides plonemeeting.core translations -->
+  <i18n:registerTranslations directory="locales" />
+
+  <include file="profiles.zcml" />
+  <include package=".browser" />
+  <include package="Products.CMFPlacefulWorkflow"/>
+  <include package="plonemeeting.core"/>
+  <!-- includeOverrides file="overrides.zcml" /-->
+
+  <adapter for="plonemeeting.core.interfaces.IMeetingItem"
+           factory="plonemeeting.communes.adapters.MeetingItemCommunesWorkflowActions"
+           provides="plonemeeting.communes.interfaces.IMeetingItemCommunesWorkflowActions"/>
+
+  <adapter for="plonemeeting.core.interfaces.IMeetingItem"
+           factory="plonemeeting.communes.adapters.MeetingItemCommunesWorkflowConditions"
+           provides="plonemeeting.communes.interfaces.IMeetingItemCommunesWorkflowConditions"/>
+
+  <adapter for="plonemeeting.core.content.meeting.IMeeting"
+           factory="plonemeeting.communes.adapters.MeetingCommunesWorkflowActions"
+           provides="plonemeeting.communes.interfaces.IMeetingCommunesWorkflowActions"/>
+
+  <adapter for="plonemeeting.core.content.meeting.IMeeting"
+           factory="plonemeeting.communes.adapters.MeetingCommunesWorkflowConditions"
+           provides="plonemeeting.communes.interfaces.IMeetingCommunesWorkflowConditions"/>
+
+  <adapter for="plonemeeting.core.content.advice.IMeetingAdvice"
+           factory="plonemeeting.communes.adapters.MeetingAdviceCommunesWorkflowActions"
+           provides="plonemeeting.communes.interfaces.IMeetingAdviceCommunesWorkflowActions"/>
+
+  <adapter for="plonemeeting.core.content.advice.IMeetingAdvice"
+           factory="plonemeeting.communes.adapters.MeetingAdviceCommunesWorkflowConditions"
+           provides="plonemeeting.communes.interfaces.IMeetingAdviceCommunesWorkflowConditions"/>
+
+  <adapter for="plonemeeting.core.interfaces.IMeetingItem"
+           factory="plonemeeting.communes.adapters.CustomMeetingItem"
+           provides="plonemeeting.core.interfaces.IMeetingItemCustom"/>
+
+  <adapter for="plonemeeting.core.content.meeting.IMeeting"
+           factory="plonemeeting.communes.adapters.CustomMeeting"
+           provides="plonemeeting.core.interfaces.IMeetingCustom"/>
+
+  <adapter for="plonemeeting.core.interfaces.IMeetingConfig"
+           factory="plonemeeting.communes.adapters.CustomMeetingConfig"
+           provides="plonemeeting.core.interfaces.IMeetingConfigCustom"/>
+
+  <adapter for="plonemeeting.core.interfaces.IToolPloneMeeting"
+           factory="plonemeeting.communes.adapters.CustomToolPloneMeeting"
+           provides="plonemeeting.core.interfaces.IToolPloneMeetingCustom"/>
+
+  <!-- Searches adapters -->
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsToControlCompletenessOfAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-to-control-completeness-of" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.AllItemsToControlCompletenessOfAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="all-items-to-control-completeness-of" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceAdviceCreatedAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-advicecreated" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceProposedToFinancialControllerAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-proposed-to-financial-controller" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceProposedToFinancialEditorAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-proposed-to-financial-editor" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceProposedToFinancialReviewerAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-proposed-to-financial-reviewer" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceProposedToFinancialManagerAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-proposed-to-financial-manager" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceSignedByFinancialManagerAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-signed-by-financial-manager" />
+  <adapter for="*"
+           factory="plonemeeting.communes.adapters.ItemsWithAdviceBackToItemValidationStatesAdapter"
+           provides="collective.compoundcriterion.interfaces.ICompoundCriterionFilter"
+           name="items-with-advice-back-to-item-validation-states" />
+
+</configure>

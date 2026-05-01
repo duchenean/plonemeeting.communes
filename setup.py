@@ -5,7 +5,7 @@ from setuptools import setup
 version = '4.2.17.dev0'
 
 setup(
-    name='Products.MeetingCommunes',
+    name='plonemeeting.communes',
     version=version,
     description="Official meetings management for college and council of belgian"
     "communes (PloneMeeting extension profile)",
@@ -26,7 +26,7 @@ setup(
     license='GPL',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    namespace_packages=['Products'],
+    namespace_packages=['plonemeeting'],
     include_package_data=True,
     zip_safe=False,
     extras_require=dict(

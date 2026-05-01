@@ -1,12 +1,12 @@
 ========================
-Products.MeetingCommunes
+plonemeeting.communes
 ========================
 
-``Products.MeetingCommunes`` is a custom profile for ``plonemeeting.core``.
+``plonemeeting.communes`` is a custom profile for ``plonemeeting.core``.
 
-.. image:: https://coveralls.io/repos/github/IMIO/Products.MeetingCommunes/badge.svg?branch=master
-    :target: https://coveralls.io/github/IMIO/Products.MeetingCommunes?branch=master
+.. image:: https://coveralls.io/repos/github/IMIO/plonemeeting.communes/badge.svg?branch=master
+    :target: https://coveralls.io/github/IMIO/plonemeeting.communes?branch=master
 
-.. image:: http://img.shields.io/pypi/v/Products.MeetingCommunes.svg
+.. image:: http://img.shields.io/pypi/v/plonemeeting.communes.svg
    :alt: PyPI badge
-   :target: https://pypi.org/project/Products.MeetingCommunes
+   :target: https://pypi.org/project/plonemeeting.communes

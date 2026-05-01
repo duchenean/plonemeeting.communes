@@ -1,8 +1,8 @@
 
-Products.MeetingCommunes Changelog
+plonemeeting.communes Changelog
 ==================================
 
-The Products.MeetingCommunes version must be the same as the Products.PloneMeeting version
+The plonemeeting.communes version must be the same as the Products.PloneMeeting version
 
 
 4.2.17 (unreleased)
