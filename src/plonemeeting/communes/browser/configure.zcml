@@ -21,7 +21,7 @@
 
     <!-- collective.documentgenerator helper view for Folder -->
     <browser:page
-        for="Products.ATContentTypes.interfaces.folder.IATBTreeFolder"
+        for="plone.dexterity.interfaces.IDexterityContainer"
         class=".overrides.MCFolderDocumentGenerationHelperView"
         permission="zope2.View"
         layer="plonemeeting.communes.interfaces.IMeetingCommunesLayer"
