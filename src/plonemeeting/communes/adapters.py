@@ -3,6 +3,8 @@
 # GNU General Public License (GPL)
 #
 
+import functools
+
 from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
 from appy.gen import No
@@ -224,8 +226,8 @@ class CustomMeeting(Meeting):
                     res.append([currentCat])
                     self._insertItemInCategory(res[-1], item,
                                                by_proposing_group, group_prefixes, groups)
-        if forceCategOrderFromConfig or cmp(list_types.sort(), ['late', 'normal']) == 0:
-            res.sort(cmp=_comp)
+        if forceCategOrderFromConfig or sorted(list_types) == ['late', 'normal']:
+            res.sort(key=functools.cmp_to_key(_comp))
         if includeEmptyCategories:
             meetingConfig = tool.getMeetingConfig(
                 self.context)
@@ -444,8 +446,7 @@ class CustomMeeting(Meeting):
 
         # Now we must sort the res dictionary with the key (containing catnum)
         # and copy it in the returned array.
-        reskey = res.keys()
-        reskey.sort()
+        reskey = sorted(res.keys())
         ressort = []
         for i in reskey:
             if catstoexclude:

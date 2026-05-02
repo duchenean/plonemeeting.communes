@@ -85,8 +85,8 @@ def fix_language(self, reindex_meetings=False, commit_threshold=1000, target_lan
     end_date = datetime.now()
     seconds = end_date - start_date
     seconds = seconds.seconds
-    hours = seconds / 3600
-    minutes = (seconds - hours * 3600) / 60
+    hours = seconds // 3600
+    minutes = (seconds - hours * 3600) // 60
     logger.info(
         "Fixing finished in {0} seconds ({1} h {2} m).".format(seconds, hours, minutes)
     )

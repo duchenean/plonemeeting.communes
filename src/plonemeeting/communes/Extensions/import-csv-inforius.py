@@ -311,8 +311,8 @@ class ImportCSV:
             self.add_annex(obj, path, annex_title=title, confidential=confidential)
             return True
         except IOError as e:
-            self.errors["io"].append(safe_unicode(e.message))
-            logger.warning(e.message)
+            self.errors["io"].append(safe_unicode(str(e)))
+            logger.warning(str(e))
             return False
 
     @staticmethod
@@ -378,8 +378,8 @@ class ImportCSV:
                             item.created_on = meeting.date
                         meeting.items.append(item)
                 except ValueError as e:
-                    self.errors["item"].append(e.message)
-                    logger.info(e.message)
+                    self.errors["item"].append(str(e))
+                    logger.info(str(e))
 
     def _check_meeting_data(self, csv_meeting):
         if not csv_meeting.items:
@@ -679,9 +679,9 @@ def import_data_from_csv(
     end_date = datetime.now()
     seconds = end_date - start_date
     seconds = seconds.seconds
-    hours = seconds / 3600
+    hours = seconds // 3600
     left_sec = seconds - hours * 3600
-    minutes = left_sec / 60
+    minutes = left_sec // 60
     left_sec = left_sec - minutes * 60
     logger.info(
         u"Import finished in {0} seconds ({1} h {2} m {3} s).".format(seconds, hours, minutes, left_sec)

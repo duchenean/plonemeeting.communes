@@ -426,7 +426,7 @@ class MCItemDocumentGenerationHelperView(ItemDocumentGenerationHelperView):
             19: "vicies", }
 
         item_number = self.real_context.getItemNumber()
-        first_part = int(item_number / 100)
+        first_part = item_number // 100
         second_part = item_number % 100
         if second_part:
             if mode == "alpha":

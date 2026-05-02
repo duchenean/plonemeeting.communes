@@ -8,6 +8,8 @@ from plonemeeting.communes.config import FINANCE_ADVICES_COLLECTION_ID
 from plonemeeting.communes.tests.MeetingCommunesTestCase import MeetingCommunesTestCase
 from plonemeeting.core.indexes import REAL_ORG_UID_PATTERN
 
+import six
+
 
 class testCustomMeetingItem(MeetingCommunesTestCase):
     """
@@ -163,7 +165,7 @@ class testCustomMeetingItem(MeetingCommunesTestCase):
         self.assertTrue(clonedItem2.adapted().showFinanceAdviceTemplate())
         self.assertEqual(clonedItem2.adapted().getFinanceAdviceId(), self.developers_uid)
         # remove inheritance for developers_uid
-        self.request['form.widgets.advice_uid'] = unicode(self.developers_uid, 'utf-8')
+        self.request['form.widgets.advice_uid'] = six.text_type(self.developers_uid, 'utf-8')
         self.request['form.widgets.inherited_advice_action'] = 'ask_locally'
         form = clonedItem2.restrictedTraverse('@@advice-remove-inheritance').form_instance
         form.update()

@@ -132,10 +132,10 @@ def import_meetingsUsersAndRoles_from_csv(self, fname=None):
         return "PloneMeeting must be installed to run this script !"
 
     try:
-        file = open(fname, "rb")
-        reader = csv.DictReader(file)
+        csv_file = open(fname, "rb")
+        reader = csv.DictReader(csv_file)
     except Exception, msg:
-        file.close()
+        csv_file.close()
         return "Error with file : %s" % msg.value
 
     out = []
@@ -175,7 +175,7 @@ def import_meetingsUsersAndRoles_from_csv(self, fname=None):
             pgr.addPrincipalToGroup(row_id, plone_group_id)
             out.append("    -> Added in group '%s'" % plone_group_id)
 
-    file.close()
+    csv_file.close()
 
     return '\n'.join(out)
 
@@ -195,10 +195,10 @@ def import_meetingsCategories_from_csv(self, meeting_config='', isClassifier=Fal
 
     import csv
     try:
-        file = open(fname, "rb")
-        reader = csv.DictReader(file)
+        csv_file = open(fname, "rb")
+        reader = csv.DictReader(csv_file)
     except Exception, msg:
-        file.close()
+        csv_file.close()
         return "Error with file : %s" % msg.value
 
     out = []
@@ -252,6 +252,6 @@ def import_meetingsCategories_from_csv(self, meeting_config='', isClassifier=Fal
         else:
             out.append("Category (or Classifier) %s already exists" % row_id)
 
-    file.close()
+    csv_file.close()
 
     return '\n'.join(out)

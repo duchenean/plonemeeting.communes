@@ -5,6 +5,7 @@ from __future__ import print_function
 from collective.contact.plonegroup.utils import get_organizations
 from copy import deepcopy
 from datetime import datetime
+import operator
 from Products.Archetypes.event import ObjectEditedEvent
 from plonemeeting.core import logger
 from zope.event import notify
@@ -113,12 +114,12 @@ def initialize_proposingGroupWithGroupInCharge(
     end_date = datetime.now()
     seconds = end_date - start_date
     seconds = seconds.seconds
-    hours = seconds / 3600
-    minutes = (seconds - hours * 3600) / 60
+    hours = seconds // 3600
+    minutes = (seconds - hours * 3600) // 60
 
     logger.info(
         u"Completed in {0} seconds (about {1} h {2} m).".format(seconds, hours, minutes)
     )
     if count_patched > 0:
-        ratio = count_patched / seconds
+        ratio = operator.truediv(count_patched, seconds)
         logger.info(u"That's %2.2f items patched per second" % ratio)
