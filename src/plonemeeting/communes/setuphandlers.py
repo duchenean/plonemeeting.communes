@@ -16,7 +16,7 @@ from imio.helpers.content import richtextval
 from plone import api
 from plone import namedfile
 from plone.dexterity.utils import createContentInContainer
-from Products.Archetypes.event import ObjectEditedEvent
+from zope.lifecycleevent import ObjectModifiedEvent
 from Products.CMFPlone.utils import _createObjectByType
 from plonemeeting.communes.config import PROJECTNAME
 from plonemeeting.communes.config import SAMPLE_TEXT
@@ -45,7 +45,7 @@ def postInstall(context):
         # MeetingItem.allowed_content_types is updated
         tool = api.portal.get_tool('portal_plonemeeting')
         for cfg in tool.objectValues('MeetingConfig'):
-            notify(ObjectEditedEvent(cfg))
+            notify(ObjectModifiedEvent(cfg))
 
     if isNotMeetingCommunesProfile(context):
         return
