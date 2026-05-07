@@ -57,7 +57,7 @@ def import_orgs(self, data=None):
             out.append("Organization %s added" % elt_id)
         else:
             out.append("Organization %s already exists" % elt_id)
-    return '\n'.join(out)
+    return '\n'.join(sorted(out))
 
 
 def import_organizations_from_csv(self, fname=None):
