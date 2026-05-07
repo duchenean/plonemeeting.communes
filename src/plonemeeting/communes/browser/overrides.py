@@ -20,7 +20,7 @@ from plonemeeting.core.utils import get_annexes
 from plonemeeting.communes.config import DEFAULT_FINANCE_ADVICES_TEMPLATE
 from zope.component import getAdapter
 
-import cgi
+import html as cgi  # cgi.escape removed in Py3; html.escape is the replacement
 
 
 class MCItemDocumentGenerationHelperView(ItemDocumentGenerationHelperView):

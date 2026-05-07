@@ -372,8 +372,13 @@ def addDemoData(context):
         signatories = {}
         for hp_uid in cfg.getOrderedContacts():
             attendees[hp_uid] = 'attendee'
-        signatories = {list(attendees.keys())[1]: '1',
-                       list(attendees.keys())[0]: '2'}
+        attendee_keys = list(attendees.keys())
+        if len(attendee_keys) >= 2:
+            signatories = {attendee_keys[1]: '1', attendee_keys[0]: '2'}
+        elif len(attendee_keys) == 1:
+            signatories = {attendee_keys[0]: '1'}
+        else:
+            signatories = {}
         # create meetings
         for date in dates:
             meetingId = secrFolder.invokeFactory(
