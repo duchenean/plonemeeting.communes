@@ -173,7 +173,7 @@ class MCItemDocumentGenerationHelperView(ItemDocumentGenerationHelperView):
                     item_transmitted_on_localized=advice.get("item_transmitted_on_localized"),
                     advice_given_on_localized=advice.get("advice_given_on_localized")
                 )
-        return formatted_finance_advice.encode('utf-8')
+        return formatted_finance_advice
 
     def _get_prefix_for_finance_advice(self, type, advice):
         """

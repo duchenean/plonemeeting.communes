@@ -52,7 +52,7 @@ collegeMeeting.insertingMethodsOnAddItem = (
     {'insertingMethod': 'on_proposing_groups', 'reverse': '0'})
 collegeMeeting.itemReferenceFormat = \
     "python: 'COL/' + (here.hasMeeting() and " \
-    "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+    "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
     "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 collegeMeeting.contentsKeptOnSentToOtherMC = ['annexes', 'decision_annexes', 'advices']
 collegeMeeting.itemWFValidationLevels = (
@@ -428,7 +428,7 @@ councilMeeting.xhtmlTransformFields = ()
 councilMeeting.xhtmlTransformTypes = ()
 councilMeeting.itemReferenceFormat = \
     "python: 'CC/' + (here.hasMeeting() and " \
-    "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+    "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
     "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 councilMeeting.itemWFValidationLevels = (
     {'state': 'itemcreated',
