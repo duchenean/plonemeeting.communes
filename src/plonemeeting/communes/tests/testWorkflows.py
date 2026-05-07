@@ -57,8 +57,8 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         # can add decision annex but not normal annex
         self.assertRaises(Unauthorized, self.addAnnex, item1)
         self.addAnnex(item1, relatedTo='item_decision')
-        self.failIf(self.transitions(item1))  # He may trigger no more action
-        self.failIf(self.hasPermission(AddAnnex, item1))
+        self.assertFalse(self.transitions(item1))  # He may trigger no more action
+        self.assertFalse(self.hasPermission(AddAnnex, item1))
         # pmManager creates a meeting
         self.changeUser('pmManager')
         meeting = self.create('Meeting')
@@ -95,8 +95,8 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         self.do(item2, 'present')
         self.addAnnex(item2)
         # So now we should have 3 normal item (2 recurring + 1) and one late item in the meeting
-        self.failUnless(len(meeting.get_items()) == 4)
-        self.failUnless(len(meeting.get_items(list_types='late')) == 1)
+        self.assertTrue(len(meeting.get_items()) == 4)
+        self.assertTrue(len(meeting.get_items(list_types='late')) == 1)
         self.changeUser('pmManager')
         item1.setDecision(self.decisionText)
 
@@ -109,9 +109,9 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
 
         # pmCreator2/pmReviewer2 are not able to see item1
         self.changeUser('pmCreator2')
-        self.failIf(self.hasPermission(View, item1))
+        self.assertFalse(self.hasPermission(View, item1))
         self.changeUser('pmReviewer2')
-        self.failIf(self.hasPermission(View, item1))
+        self.assertFalse(self.hasPermission(View, item1))
 
         # meeting may be closed or set back to frozen
         self.changeUser('pmManager')
@@ -137,7 +137,7 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         # can add decision annex but not normal annex
         self.assertRaises(Unauthorized, self.addAnnex, item1)
         self.addAnnex(item1, relatedTo='item_decision')
-        self.failIf(self.transitions(item1))  # He may trigger no more action
+        self.assertFalse(self.transitions(item1))  # He may trigger no more action
         # pmManager creates a meeting
         self.changeUser('pmManager')
         meeting = self.create('Meeting')
@@ -176,8 +176,8 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         self.do(item2, 'present')
         self.addAnnex(item2)
         # So now I should have 1 normal item left and one late item in the meeting
-        self.failIf(len(meeting.get_items()) != 2)
-        self.failUnless(len(meeting.get_items(list_types=['late'])) == 1)
+        self.assertFalse(len(meeting.get_items()) != 2)
+        self.assertTrue(len(meeting.get_items(list_types=['late'])) == 1)
         self.changeUser('pmReviewer1')
         # can not add decision annex or normal annex
         self.assertRaises(Unauthorized, self.addAnnex, item1)
@@ -207,7 +207,7 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         self.assertEqual(len(get_annexes(duplicatedItem, portal_types=('annex', ))), 1)
         self.assertEqual(len(get_annexes(duplicatedItem, portal_types=('annexDecision', ))), 0)
         self.addAnnex(item2, relatedTo='item_decision')
-        self.failIf(len(self.transitions(meeting)) != 2)
+        self.assertFalse(len(self.transitions(meeting)) != 2)
         # When a meeting is closed, items without a decision are automatically 'accepted'
         self.do(meeting, 'close')
         self.assertEqual(item2.query_state(), 'accepted')
@@ -274,24 +274,24 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         for item in meeting.get_items():
             self.assertEqual(item.getOwner().getId(), 'pmManager')
         # The meeting must contain recurring items : 2 defined and one added here above
-        self.failUnless(len(meeting.get_items()) == 3)
-        self.failIf(meeting.get_items(list_types=['late']))
+        self.assertTrue(len(meeting.get_items()) == 3)
+        self.assertFalse(meeting.get_items(list_types=['late']))
         # After freeze, the meeting must have one recurring item more
         self.freezeMeeting(meeting)
-        self.failUnless(len(meeting.get_items()) == 4)
-        self.failUnless(len(meeting.get_items(list_types=['late'])) == 1)
+        self.assertTrue(len(meeting.get_items()) == 4)
+        self.assertTrue(len(meeting.get_items(list_types=['late'])) == 1)
         # Back to created: rec item 2 is inserted
         self.backToState(meeting, 'created')
-        self.failUnless(len(meeting.get_items()) == 5)
-        self.failUnless(len(meeting.get_items(list_types=['late'])) == 1)
+        self.assertTrue(len(meeting.get_items()) == 5)
+        self.assertTrue(len(meeting.get_items(list_types=['late'])) == 1)
         # Recurring items can be added twice...
         self.freezeMeeting(meeting)
-        self.failUnless(len(meeting.get_items()) == 6)
-        self.failUnless(len(meeting.get_items(list_types=['late'])) == 2)
+        self.assertTrue(len(meeting.get_items()) == 6)
+        self.assertTrue(len(meeting.get_items(list_types=['late'])) == 2)
         # Decide the meeting, a third late item is added
         self.decideMeeting(meeting)
-        self.failUnless(len(meeting.get_items()) == 7)
-        self.failUnless(len(meeting.get_items(list_types=['late'])) == 3)
+        self.assertTrue(len(meeting.get_items()) == 7)
+        self.assertTrue(len(meeting.get_items(list_types=['late'])) == 3)
 
     def _checkRecurringItemsCouncil(self):
         meeting = self.create('Meeting')
