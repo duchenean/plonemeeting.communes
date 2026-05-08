@@ -198,7 +198,7 @@ class testWorkflows(MeetingCommunesTestCase, pmtw):
         item2.setDecision(self.decisionText)
         self.do(meeting, 'decide')
         # check that a delayed item is duplicated
-        self.assertEqual(len(item1.getBRefs('ItemPredecessor')), 0)
+        self.assertEqual(len(item1.get_successors(the_objects=False)), 0)
         self.do(item1, 'delay')
         # the duplicated item has item1 as predecessor
         duplicatedItem = item1.get_successors()[0]
