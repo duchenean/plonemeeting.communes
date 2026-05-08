@@ -55,7 +55,7 @@ class testViews(MeetingCommunesTestCase, pmtv):
                 to="au",
                 adviser="Vendors",
                 item_transmitted_on_localized=localized_now,
-                prefix="le").encode('utf-8'))
+                prefix="le"))
 
 
 def test_suite():

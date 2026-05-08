@@ -1120,7 +1120,7 @@ class testCustomViews(MeetingCommunesTestCase):
         ordered_dico = helper.get_multiple_level_printing(itemUids=itemUids, level_number=5)
         self.assertEqual(len(ordered_dico), 7)
         self.assertEqual(
-            ordered_dico.items(),
+            list(ordered_dico.items()),
             [('<h1>A</h1>', []),
              ('<h2>A.1. DESCRI1</h2>', []),
              ('<h3>A.1.2. DESCRI2</h3>', []),
