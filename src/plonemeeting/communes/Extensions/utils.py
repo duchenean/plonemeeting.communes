@@ -57,7 +57,7 @@ def import_orgs(self, data=None):
             out.append("Organization %s added" % elt_id)
         else:
             out.append("Organization %s already exists" % elt_id)
-    return '\n'.join(out)
+    return '\n'.join(sorted(out))
 
 
 def import_organizations_from_csv(self, fname=None):
@@ -79,10 +79,10 @@ def import_organizations_from_csv(self, fname=None):
     try:
         file = open(fname, "rb")
         reader = csv.DictReader(file)
-    except Exception, msg:
+    except Exception as msg:
         if file:
             file.close()
-        return "Error with file : %s" % msg.value
+        return "Error with file : %s" % str(msg)
 
     out = []
 
@@ -134,9 +134,9 @@ def import_meetingsUsersAndRoles_from_csv(self, fname=None):
     try:
         csv_file = open(fname, "rb")
         reader = csv.DictReader(csv_file)
-    except Exception, msg:
+    except Exception as msg:
         csv_file.close()
-        return "Error with file : %s" % msg.value
+        return "Error with file : %s" % str(msg)
 
     out = []
 
@@ -197,9 +197,9 @@ def import_meetingsCategories_from_csv(self, meeting_config='', isClassifier=Fal
     try:
         csv_file = open(fname, "rb")
         reader = csv.DictReader(csv_file)
-    except Exception, msg:
+    except Exception as msg:
         csv_file.close()
-        return "Error with file : %s" % msg.value
+        return "Error with file : %s" % str(msg)
 
     out = []
 
@@ -247,7 +247,7 @@ def import_meetingsCategories_from_csv(self, meeting_config='', isClassifier=Fal
                         cat.enabled = False
                     cat.reindexObject()
                 out.append("Category (or Classifier) %s added" % row_id)
-            except Exception, message:
+            except Exception as message:
                 out.append('error with %s - %s : %s' % (row_id, row['title'], message))
         else:
             out.append("Category (or Classifier) %s already exists" % row_id)

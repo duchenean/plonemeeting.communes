@@ -229,6 +229,13 @@
    provides="Products.GenericSetup.interfaces.EXTENSION"
    for="Products.CMFPlone.interfaces.IPloneSiteRoot"/>
 
+  <!-- Import steps (registered via ZCML for Plone 6 compat) -->
+  <genericsetup:importStep
+      name="MeetingCommunes-postInstall"
+      title="manual coded post-install for MeetingCommunes"
+      description="Manual coded post-install for MeetingCommunes"
+      handler="plonemeeting.communes.setuphandlers.postInstall" />
+
   <genericsetup:upgradeStep
       title="Go to MeetingCommunes 4.1"
       description=""

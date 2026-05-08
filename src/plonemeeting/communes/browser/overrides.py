@@ -20,7 +20,7 @@ from plonemeeting.core.utils import get_annexes
 from plonemeeting.communes.config import DEFAULT_FINANCE_ADVICES_TEMPLATE
 from zope.component import getAdapter
 
-import cgi
+import html as cgi  # cgi.escape removed in Py3; html.escape is the replacement
 
 
 class MCItemDocumentGenerationHelperView(ItemDocumentGenerationHelperView):
@@ -173,7 +173,7 @@ class MCItemDocumentGenerationHelperView(ItemDocumentGenerationHelperView):
                     item_transmitted_on_localized=advice.get("item_transmitted_on_localized"),
                     advice_given_on_localized=advice.get("advice_given_on_localized")
                 )
-        return formatted_finance_advice.encode('utf-8')
+        return formatted_finance_advice
 
     def _get_prefix_for_finance_advice(self, type, advice):
         """

@@ -26,7 +26,7 @@ collegeMeeting.title = 'Collège'
 collegeMeeting.folderTitle = 'Collège'
 collegeMeeting.shortName = 'ZCollege'
 collegeMeeting.itemReferenceFormat = "python: 'COL/' + (here.hasMeeting() and " \
-                                     "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+                                     "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
                                      "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 collegeMeeting.onTransitionFieldTransforms = (
     ({'transition': 'delay',
@@ -120,7 +120,7 @@ councilMeeting.insertingMethodsOnAddItem = (
     {'insertingMethod': 'on_list_type', 'reverse': '0'},
     {'insertingMethod': 'on_proposing_groups', 'reverse': '0'})
 councilMeeting.itemReferenceFormat = "python: 'CONSEIL/' + (here.hasMeeting() and " \
-                                 "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+                                 "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
                                  "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 councilMeeting.itemColumns = [
     'static_item_reference',

@@ -58,16 +58,16 @@ class testCustomUtils(MeetingCommunesTestCase):
         # if we pass a dict containing the existing groups, it does nothing but
         # returning that the groups already exist
         data = self._exportOrgs()
-        expected = 'Organization endUsers already exists\n' \
-                   'Organization vendors already exists\n' \
-                   'Organization developers already exists'
+        expected = 'Organization developers already exists\n' \
+                   'Organization endUsers already exists\n' \
+                   'Organization vendors already exists'
         res = self._importOrgs(data)
         self.assertEqual(expected, res)
         # but it can also add an organization if it does not exist
         data['newGroup'] = ('New group title', 'New group description', 'NGAcronym', 'python:False')
-        expected = 'Organization endUsers already exists\n' \
-                   'Organization vendors already exists\n' \
+        expected = 'Organization developers already exists\n' \
+                   'Organization endUsers already exists\n' \
                    'Organization newGroup added\n' \
-                   'Organization developers already exists'
+                   'Organization vendors already exists'
         res = self._importOrgs(data)
         self.assertEqual(expected, res)

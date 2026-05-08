@@ -29,17 +29,17 @@ for level in item_wf_val_levels:
         level['state_title'],
         domain="plone",
         context=request,
-        target_language="fr").encode('utf-8')
+        target_language="fr")
     level['leading_transition_title'] = translate(
         level['leading_transition_title'],
         domain="plone",
         context=request,
-        target_language="fr").encode('utf-8')
+        target_language="fr")
     level['back_transition_title'] = translate(
         level['back_transition_title'],
         domain="plone",
         context=request,
-        target_language="fr").encode('utf-8')
+        target_language="fr")
 collegeMeeting.itemWFValidationLevels = item_wf_val_levels
 
 # Conseil communal

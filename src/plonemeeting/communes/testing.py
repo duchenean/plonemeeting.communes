@@ -26,8 +26,7 @@ MC_TESTING_PROFILE = MCLayer(
     additional_z2_products=('imio.dashboard',
                             'plonemeeting.communes',
                             'plonemeeting.core',
-                            'Products.CMFPlacefulWorkflow',
-                            'Products.PasswordStrength'),
+                            'Products.CMFPlacefulWorkflow'),
     gs_profile_id='plonemeeting.communes:testing',
     name="MC_TESTING_PROFILE")
 
@@ -40,8 +39,7 @@ MC_DEMO_TESTING_PROFILE = MCLayer(
     additional_z2_products=('imio.dashboard',
                             'plonemeeting.communes',
                             'plonemeeting.core',
-                            'Products.CMFPlacefulWorkflow',
-                            'Products.PasswordStrength'),
+                            'Products.CMFPlacefulWorkflow'),
     gs_profile_id='plonemeeting.communes:demo',
     name="MC_TESTING_PROFILE")
 

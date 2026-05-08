@@ -24,7 +24,7 @@ bpMeeting.title = 'Bureau permanent'
 bpMeeting.folderTitle = 'Bureau permanent'
 bpMeeting.shortName = 'bp'
 bpMeeting.itemReferenceFormat = "python: 'BP/' + (here.hasMeeting() and " \
-                                "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+                                "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
                                 "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 bpMeeting.onTransitionFieldTransforms = (
     ({'transition': 'delay',
@@ -129,7 +129,7 @@ casMeeting.insertingMethodsOnAddItem = (
     {'insertingMethod': 'on_list_type', 'reverse': '0'},
     {'insertingMethod': 'on_proposing_groups', 'reverse': '0'})
 casMeeting.itemReferenceFormat = "python: 'CAS/' + (here.hasMeeting() and " \
-                                 "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDate().strftime('%Y%m%d') or '') " \
+                                 "here.restrictedTraverse('@@pm_unrestricted_methods').getLinkedMeetingDateStr() or '') " \
                                  "+ '-' + str(here.getItemNumber(relativeTo='meeting', for_display=True))"
 casMeeting.itemColumns = [
     'static_item_reference',

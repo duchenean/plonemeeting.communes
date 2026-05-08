@@ -17,7 +17,8 @@ __author__ = """Gauthier Bastien <g.bastien@imio.be>, Stephan Geulette <s.geulet
 __docformat__ = 'plaintext'
 
 
-from plonemeeting.communes.model import pm_updates  # noqa
+# P6 migration: AT model extensions dropped (Products.Archetypes removed).
+# from plonemeeting.communes.model import pm_updates  # noqa
 from plonemeeting.communes import adapters  # noqa
 
 

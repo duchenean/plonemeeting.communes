@@ -7,7 +7,7 @@ import functools
 
 from AccessControl import ClassSecurityInfo
 from AccessControl.class_init import InitializeClass
-from appy.gen import No
+from appy.utils import No
 from collections import OrderedDict
 from collective.contact.plonegroup.utils import get_organizations
 from collective.contact.plonegroup.utils import get_plone_group_id
@@ -39,28 +39,36 @@ from plonemeeting.core.interfaces import IMeetingConfigCustom
 from plonemeeting.core.interfaces import IMeetingCustom
 from plonemeeting.core.interfaces import IMeetingItemCustom
 from plonemeeting.core.interfaces import IToolPloneMeetingCustom
-from plonemeeting.core.MeetingConfig import MeetingConfig
+from plonemeeting.core.content.meetingconfig import MeetingConfig
 from plonemeeting.core.content.meetingitem import MeetingItem
-from plonemeeting.core.MeetingItem import MeetingItemWorkflowActions
-from plonemeeting.core.MeetingItem import MeetingItemWorkflowConditions
 from plonemeeting.core.model import adaptations
-from plonemeeting.core.ToolPloneMeeting import ToolPloneMeeting
+try:
+    from plonemeeting.core.MeetingItem import MeetingItemWorkflowActions
+    from plonemeeting.core.MeetingItem import MeetingItemWorkflowConditions
+except (ImportError, AttributeError):
+    MeetingItemWorkflowActions = object
+    MeetingItemWorkflowConditions = object
+try:
+    from plonemeeting.core.ToolPloneMeeting import ToolPloneMeeting
+except ImportError:
+    ToolPloneMeeting = object
 from plonemeeting.core.workflows.advice import MeetingAdviceWorkflowActions
 from plonemeeting.core.workflows.advice import MeetingAdviceWorkflowConditions
 from plonemeeting.core.workflows.meeting import MeetingWorkflowActions
 from plonemeeting.core.workflows.meeting import MeetingWorkflowConditions
 from zope.i18n import translate
-from zope.interface import implements
+from zope.interface import implementer
 
 
-ToolPloneMeeting.advice_wf_adaptations = ('add_advicecreated_state', )
+if ToolPloneMeeting is not object:
+    ToolPloneMeeting.advice_wf_adaptations = ('add_advicecreated_state', )
 
 
+@implementer(IMeetingCustom)
 class CustomMeeting(Meeting):
     '''Adapter that adapts a meeting implementing IMeeting to the
        interface IMeetingCustom.'''
 
-    implements(IMeetingCustom)
     security = ClassSecurityInfo()
 
     def __init__(self, meeting):
@@ -478,10 +486,10 @@ class CustomMeeting(Meeting):
         return ressort
 
 
+@implementer(IMeetingItemCustom)
 class CustomMeetingItem(MeetingItem):
     '''Adapter that adapts a meeting item implementing IMeetingItem to the
        interface IMeetingItemCustom.'''
-    implements(IMeetingItemCustom)
     security = ClassSecurityInfo()
 
     def __init__(self, item):
@@ -540,11 +548,11 @@ class CustomMeetingItem(MeetingItem):
         return res
 
 
+@implementer(IMeetingConfigCustom)
 class CustomMeetingConfig(MeetingConfig):
     '''Adapter that adapts a meetingConfig implementing IMeetingConfig to the
        interface IMeetingConfigCustom.'''
 
-    implements(IMeetingConfigCustom)
     security = ClassSecurityInfo()
 
     def __init__(self, item):
@@ -913,11 +921,11 @@ class CustomMeetingConfig(MeetingConfig):
             return super(CustomMeetingConfig, self)._adviceActionsInterfaceFor(advice_obj)
 
 
+@implementer(IMeetingCommunesWorkflowActions)
 class MeetingCommunesWorkflowActions(MeetingWorkflowActions):
     '''Adapter that adapts a meeting item implementing IMeetingItem to the
        interface IMeetingCommunesWorkflowActions'''
 
-    implements(IMeetingCommunesWorkflowActions)
     security = ClassSecurityInfo()
 
     security.declarePrivate('doDecide')
@@ -937,19 +945,19 @@ class MeetingCommunesWorkflowActions(MeetingWorkflowActions):
                 item._initDecisionFieldIfEmpty()
 
 
+@implementer(IMeetingCommunesWorkflowConditions)
 class MeetingCommunesWorkflowConditions(MeetingWorkflowConditions):
     '''Adapter that adapts a meeting item implementing IMeetingItem to the
        interface IMeetingCommunesWorkflowConditions'''
 
-    implements(IMeetingCommunesWorkflowConditions)
     security = ClassSecurityInfo()
 
 
+@implementer(IMeetingItemCommunesWorkflowActions)
 class MeetingItemCommunesWorkflowActions(MeetingItemWorkflowActions):
     '''Adapter that adapts a meeting item implementing IMeetingItem to the
        interface IMeetingItemCommunesWorkflowActions'''
 
-    implements(IMeetingItemCommunesWorkflowActions)
     security = ClassSecurityInfo()
 
     def _will_ask_completeness_eval_again(self):
@@ -1001,11 +1009,11 @@ class MeetingItemCommunesWorkflowActions(MeetingItemWorkflowActions):
         self._doWaitAdvices()
 
 
+@implementer(IMeetingItemCommunesWorkflowConditions)
 class MeetingItemCommunesWorkflowConditions(MeetingItemWorkflowConditions):
     '''Adapter that adapts a meeting item implementing IMeetingItem to the
        interface IMeetingItemCommunesWorkflowConditions'''
 
-    implements(IMeetingItemCommunesWorkflowConditions)
     security = ClassSecurityInfo()
 
     security.declarePublic('mayDecide')
@@ -1034,10 +1042,10 @@ class MeetingItemCommunesWorkflowConditions(MeetingItemWorkflowConditions):
         return res
 
 
+@implementer(IMeetingAdviceCommunesWorkflowActions)
 class MeetingAdviceCommunesWorkflowActions(MeetingAdviceWorkflowActions):
     ''' '''
 
-    implements(IMeetingAdviceCommunesWorkflowActions)
     security = ClassSecurityInfo()
 
     security.declarePrivate('doProposeToFinancialController')
@@ -1071,10 +1079,10 @@ class MeetingAdviceCommunesWorkflowActions(MeetingAdviceWorkflowActions):
         pass
 
 
+@implementer(IMeetingAdviceCommunesWorkflowConditions)
 class MeetingAdviceCommunesWorkflowConditions(MeetingAdviceWorkflowConditions):
     ''' '''
 
-    implements(IMeetingAdviceCommunesWorkflowConditions)
     security = ClassSecurityInfo()
 
     def _check_completeness(self):
@@ -1151,11 +1159,11 @@ class MeetingAdviceCommunesWorkflowConditions(MeetingAdviceWorkflowConditions):
         return res
 
 
+@implementer(IToolPloneMeetingCustom)
 class CustomToolPloneMeeting(ToolPloneMeeting):
     '''Adapter that adapts a tool implementing ToolPloneMeeting to the
        interface IToolPloneMeetingCustom'''
 
-    implements(IToolPloneMeetingCustom)
     security = ClassSecurityInfo()
 
     def __init__(self, item):

@@ -12,4 +12,19 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFCore.interfaces.ISiteRoot"/>
 
+    <!-- Import steps (registered via ZCML for Plone 6 compat) -->
+    <genericsetup:importStep
+        name="installMeetingCommunes"
+        title="Install MeetingCommunes."
+        description="Install MeetingCommunes."
+        handler="plonemeeting.communes.setuphandlers.installMeetingCommunes" />
+
+    <genericsetup:importStep
+        name="initializetool-MeetingCommunes"
+        title="Initialize MeetingCommunes with examples."
+        description="Initialize portal_plonemeeting folders."
+        handler="plonemeeting.communes.setuphandlers.initializeTool">
+      <depends name="installMeetingCommunes" />
+    </genericsetup:importStep>
+
 </configure>
